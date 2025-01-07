@@ -21,11 +21,16 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: "asset/resource",
+      },
     ],
   },
   output: {
     path: path.resolve(__dirname, "../build"),
     filename: "bundle.js",
+    assetModuleFilename: "images/[hash][ext][query]",
   },
   mode: "development",
   plugins: [
